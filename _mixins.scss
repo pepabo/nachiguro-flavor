@@ -1,0 +1,32 @@
+@use "sass:map";
+@use "./tokens";
+
+
+@mixin export {
+  :root {
+    // フォールバックを目的に指定するfont familyの値はFlavorで指定しているためlintの対象から除外する
+    /* stylelint-disable font-family-no-missing-generic-family-keyword, font-family-no-duplicate-names */
+    font-family: #{map.get(
+          map.get(map.get(tokens.$tokens, typography), font-family),
+          sans-latin
+        )},
+      #{map.get(
+          map.get(map.get(tokens.$tokens, typography), font-family),
+          sans-japanese
+        )},
+      #{map.get(map.get(map.get(tokens.$tokens, typography), font-family), ui)},
+      sans-serif;
+    /* stylelint-enable font-family-no-missing-generic-family-keyword, font-family-no-duplicate-names */
+  }
+}
+
+@mixin icon-font($base-url: "@pepabo-inhouse/icon/dist") {
+  @font-face {
+    font-weight: 400;
+    font-family: "Nachiguro Icons";
+    font-style: normal;
+    src:
+      url($base-url + "/inhouse-icons.woff2") format("woff2"),
+      url($base-url + "/inhouse-icons.woff") format("woff");
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "@inhouse/nachiguro-flavor",
+  "description": "nachiguro flavor for Inhouse Components Web",
+  "version": "1.0.0",
+  "publishConfig": {
+    "registry": "https://npm.git.pepabo.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.pepabo.com/inhouse/nachiguro-flavor.git"
+  },
+  "dependencies": {
+    "@pepabo-inhouse/tokens": "file:../inhouse-tokens"
+  }
+}
