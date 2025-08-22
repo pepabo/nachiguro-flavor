@@ -1,0 +1,32 @@
+@use "sass:map";
+@use "./nachiguro-color";
+
+// option-colorマッピング定義
+$option-color-mapping: (
+  'white': ('color': 'white', 'level': 1000),
+  'black': ('color': 'black', 'level': 1000),
+  'gray': ('color': 'gray', 'level': 500),
+  'blue': ('color': 'blue', 'level': 500),
+  'primary': ('color': 'blue', 'level': 500),
+  'secondary': ('color': 'gray', 'level': 500),
+  'success': ('color': 'green', 'level': 500),
+  'warning': ('color': 'amber', 'level': 500),
+  'danger': ('color': 'red', 'level': 500)
+);
+
+// get-option-color関数: @inhouse/adapterと互換性のあるインターフェース
+@function get-option-color($name, $level: null) {
+  $mapping: map.get($option-color-mapping, $name);
+  
+  @if $mapping == null {
+    @error "Option color '#{$name}' is not defined in nachiguro-flavor";
+  }
+  
+  $color-name: map.get($mapping, 'color');
+  $default-level: map.get($mapping, 'level');
+  
+  // levelが指定されていれば使用、そうでなければデフォルトレベルを使用
+  $final-level: if($level != null, $level, $default-level);
+  
+  @return nachiguro-color.color($color-name, $final-level);
+}
