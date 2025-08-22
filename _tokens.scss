@@ -1,5 +1,4 @@
 @use "sass:map";
-@use "@pepabo-inhouse/tokens/build/nachiguro/scss/variables" as base-tokens;
 @use "./variables/option-color";
 
 // 基本tokensマップを取得して、option-colorセクションを追加
