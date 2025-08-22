@@ -1,0 +1,8 @@
+@use "./nachiguro-color";
+
+$transition-value: none !default;
+
+$selection-color-values: (
+  text: #fff,
+  background: #02669c, // Nachiguro Blue 700
+) !default;
