@@ -1,39 +1,43 @@
 @use "sass:map";
+@use "@pepabo-inhouse/tokens/build/nachiguro/scss/variables" as base-tokens;
 @use "./variables/option-color";
 
-// nachiguro-color システムを使用してtokensマップを構築
-$tokens: (
-  'color': (
-    'option': (
-      'white': (
-        '1000': option-color.get-option-color('white', 1000)
-      ),
-      'black': (
-        '1000': option-color.get-option-color('black', 1000)
-      ),
-      'gray': (
-        '300': option-color.get-option-color('gray', 300),
-        '500': option-color.get-option-color('gray', 500)
-      ),
-      'blue': (
-        '50': option-color.get-option-color('blue', 50),
-        '500': option-color.get-option-color('blue', 500),
-        '800': option-color.get-option-color('blue', 800)
-      ),
-      'primary': (
-        '500': option-color.get-option-color('primary', 500)
-      ),
-      'secondary': (
-        '500': option-color.get-option-color('secondary', 500)
-      ),
-      'success': (
-        '500': option-color.get-option-color('success', 500)
-      ),
-      'warning': (
-        '500': option-color.get-option-color('warning', 500)
-      ),
-      'danger': (
-        '500': option-color.get-option-color('danger', 500)
+// 基本tokensマップを取得して、option-colorセクションを追加
+$tokens: map.deep-merge(
+  base-tokens.$tokens,
+  (
+    'color': (
+      'option': (
+        'white': (
+          '1000': option-color.get-option-color('white', 1000)
+        ),
+        'black': (
+          '1000': option-color.get-option-color('black', 1000)
+        ),
+        'gray': (
+          '300': option-color.get-option-color('gray', 300),
+          '500': option-color.get-option-color('gray', 500)
+        ),
+        'blue': (
+          '50': option-color.get-option-color('blue', 50),
+          '500': option-color.get-option-color('blue', 500),
+          '800': option-color.get-option-color('blue', 800)
+        ),
+        'primary': (
+          '500': option-color.get-option-color('primary', 500)
+        ),
+        'secondary': (
+          '500': option-color.get-option-color('secondary', 500)
+        ),
+        'success': (
+          '500': option-color.get-option-color('success', 500)
+        ),
+        'warning': (
+          '500': option-color.get-option-color('warning', 500)
+        ),
+        'danger': (
+          '500': option-color.get-option-color('danger', 500)
+        )
       )
     )
   )
